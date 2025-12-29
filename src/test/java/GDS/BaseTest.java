@@ -57,8 +57,8 @@ public class BaseTest {
 	}
 
 	public void gestureScrollToElement(String visibleText) {
-		driver.findElement(
-				AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + visibleText + "\"));"));
+		driver.findElement(AppiumBy.androidUIAutomator(
+				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + visibleText + "\"));"));
 	}
 
 	public void gestureScrollToEnd() {
@@ -68,5 +68,10 @@ public class BaseTest {
 			canScrollMore = (Boolean) ((JavascriptExecutor) driver).executeScript("mobile: scrollGesture", ImmutableMap
 					.of("left", 100, "top", 100, "width", 200, "height", 200, "direction", "down", "percent", 1.0));
 		} while (canScrollMore);
+	}
+
+	public void gestureSwipeOnAnElement(WebElement element, String direction) {
+		((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of("elementId",
+				((RemoteWebElement) element).getId(), "direction", direction, "percent", 0.25));
 	}
 }
