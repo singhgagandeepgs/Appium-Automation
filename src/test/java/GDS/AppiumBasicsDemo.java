@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
 
-public class AppiumBasicsFirstTest extends BaseTest{
+public class AppiumBasicsDemo extends BaseTest{
 	
 	@Test
 	public void testSettingWiFiName(){

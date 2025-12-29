@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
 
-public class LongPressGestureTest extends BaseTest{
+public class LongPressGestureDemo extends BaseTest{
 	
 	@Test
-	public void testLongPressGesture(){
+	public void testLongClickGesture(){
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Views\"]")).click();
 		driver.findElement(AppiumBy.accessibilityId("Expandable Lists")).click();
 		driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"1. Custom Adapter\"]")).click();
