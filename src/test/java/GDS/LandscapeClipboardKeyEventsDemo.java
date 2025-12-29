@@ -1,8 +1,11 @@
 package GDS;
 
 import org.openqa.selenium.DeviceRotation;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -13,8 +16,27 @@ public class LandscapeClipboardKeyEventsDemo extends BaseTest{
 	@Test
 	public void testMiscFeatures() throws InterruptedException{
 		
-		driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='3. Preference dependencies']")).click();
+		// App Package & App Activity
+		// Directly launching the app on a specific screen aka activity
+		// Windows Command: adb shell dumpsys window | find "mCurrentFocus"
+		
+		/*
+		 * String appPackage = "io.appium.android.apis"; String appActivity =
+		 * "io.appium.android.apis.preference.PreferenceDependencies";
+		 * 
+		 * Activity activity = new Activity(appPackage, appActivity);
+		 * 
+		 * driver.startActivity(activity); // Deprecated in latest Appium. Use below JS
+		 * code instead.
+		 */		
+		((JavascriptExecutor) driver).executeScript("mobile: startActivity",
+				ImmutableMap.of("intent", "io.appium.android.apis/io.appium.android.apis.preference.PreferenceDependencies"));
+		
+		//Commented out the 2 lines below as step-by-step navigation to the desired screen is not required now
+		//Because above code will help us directly open the intended screen
+		
+		//driver.findElement(AppiumBy.accessibilityId("Preference")).click();
+		//driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='3. Preference dependencies']")).click();
 		driver.findElement(AppiumBy.id("android:id/checkbox")).click();
 		
 		// Hereafter, rotate the device to landscape mode
