@@ -1,4 +1,4 @@
-package GDS;
+package ecomAppE2E;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -39,8 +39,8 @@ public class BaseTest {
 
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName("GagansEmulator");
-		options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\ApiDemos-debug.apk");
-		//options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\General-Store.apk");
+		//options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+		options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\General-Store.apk");
 
 		driver = new AndroidDriver(appiumServer, options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
