@@ -11,7 +11,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
-public class LandscapeClipboardKeyEventsDemo extends BaseTest{
+public class LSModeClipboardKeyEventsDemo extends BaseTest{
 	
 	@Test
 	public void testMiscFeatures() throws InterruptedException{

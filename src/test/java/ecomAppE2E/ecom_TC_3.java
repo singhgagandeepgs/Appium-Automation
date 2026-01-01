@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import GDS.BaseTest;
 import io.appium.java_client.AppiumBy;
 
 public class ecom_TC_3 extends BaseTest{
@@ -46,13 +47,17 @@ public class ecom_TC_3 extends BaseTest{
 		
 		driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
 		
-		WebElement screenTitle = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title"));
+		//WebElement screenTitle = driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title"));
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.attributeContains(screenTitle, "text", "Cart"));
+		wait.until(ExpectedConditions.attributeContains(By.id("com.androidsample.generalstore:id/toolbar_title"), "text", "Cart"));
 		
 		WebElement productOnCart = driver.findElement(By.id("com.androidsample.generalstore:id/productName"));
 		String productTitleOnCart = productOnCart.getText();
 		Assert.assertEquals(productTitleOnCart, "Jordan 6 Rings");
 	}
 }
+
+/*
+ * ### Learning: New method under ExpectedConditions class "attributeContains"
+ */

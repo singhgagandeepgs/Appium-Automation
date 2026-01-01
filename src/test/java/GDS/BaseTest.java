@@ -23,8 +23,8 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class BaseTest {
 
-	AndroidDriver driver;
-	AppiumDriverLocalService service;
+	public AndroidDriver driver;
+	public AppiumDriverLocalService service;
 
 	@BeforeClass
 	public void configureAppium() throws MalformedURLException, URISyntaxException {
@@ -39,17 +39,26 @@ public class BaseTest {
 
 		UiAutomator2Options options = new UiAutomator2Options();
 		options.setDeviceName("GagansEmulator");
-		options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\ApiDemos-debug.apk");
-		//options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\General-Store.apk");
+		//options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+		options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\General-Store.apk");
+		
+		options.setCapability("appium:chromedriverAutodownload", true); // New statement added myself (Not in tutorial) to handle webview Chrome compatibility error
+		options.setCapability("appium:autoWebview", false);
+        options.setCapability("appium:ensureWebviewsHavePages", true);
 
+		
 		driver = new AndroidDriver(appiumServer, options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
-		// service.stop();
+		if (driver != null) {
+            driver.quit();
+        }
+        if (service != null) {
+            service.stop();
+        }
 	}
 
 	public void gestureLongClick(WebElement element) {
@@ -81,5 +90,11 @@ public class BaseTest {
 				((RemoteWebElement) element).getId(),
 				"endX", dropCordX,
 				"endY", dropCordY));
+	}
+	
+	public double returnFormattedPrice(String amountString) {
+		String removedDollar = amountString.replace("$", "").trim();
+		Double productPrice = Double.parseDouble(removedDollar);
+		return productPrice;
 	}
 }
