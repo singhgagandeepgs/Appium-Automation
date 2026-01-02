@@ -4,10 +4,9 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import GDS.BaseTest;
 import io.appium.java_client.AppiumBy;
 
-public class ecom_TC_2 extends BaseTest{
+public class ecom_TC_2 extends E2EBaseTest{
 	
 	@Test
 	public void testErrorToast() throws InterruptedException {

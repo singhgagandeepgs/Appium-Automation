@@ -3,10 +3,9 @@ package ecomAppE2E;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import GDS.BaseTest;
 import io.appium.java_client.AppiumBy;
 
-public class ecom_TC_1 extends BaseTest{
+public class ecom_TC_1 extends E2EBaseTest{
 	
 	@Test
 	public void testFillForm() throws InterruptedException {

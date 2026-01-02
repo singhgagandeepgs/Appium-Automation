@@ -10,11 +10,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import GDS.BaseTest;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 
-public class ecom_TC_5 extends BaseTest {
+public class ecom_TC_5 extends E2EBaseTest {
 
 	@Test
 	public void testWebView() throws InterruptedException {
