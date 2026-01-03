@@ -13,7 +13,7 @@ public class ecom_TC_1 extends E2EBaseTest{
 		driver.hideKeyboard();
 		driver.findElement(AppiumBy.id("com.androidsample.generalstore:id/radioFemale")).click();
 		driver.findElement(AppiumBy.className("android.widget.Spinner")).click();
-		gestureScrollToElement("Argentina");
+		gestureScrollToVisibleText("Argentina");
 		driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"Argentina\"]")).click();
 		driver.findElement(By.className("android.widget.Button")).click();
 	}

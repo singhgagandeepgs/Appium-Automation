@@ -14,7 +14,7 @@ public class ecom_TC_2 extends E2EBaseTest{
 		driver.hideKeyboard();
 		driver.findElement(AppiumBy.id("com.androidsample.generalstore:id/radioFemale")).click();
 		driver.findElement(AppiumBy.className("android.widget.Spinner")).click();
-		gestureScrollToElement("Argentina");
+		gestureScrollToVisibleText("Argentina");
 		driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"android:id/text1\" and @text=\"Argentina\"]")).click();
 		driver.findElement(By.className("android.widget.Button")).click();
 		String validationToastMsg = driver.findElement(AppiumBy.xpath("//android.widget.Toast")).getAttribute("name");
@@ -23,6 +23,6 @@ public class ecom_TC_2 extends E2EBaseTest{
 }
 
 /*
- * ### Learning: Typical tag name for the toast elements on android apps is
+ * ### Take Away: Typical tag name for the toast elements on android apps is
  * "android.widget.Toast"
  */

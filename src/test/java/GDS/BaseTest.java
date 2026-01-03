@@ -38,7 +38,8 @@ public class BaseTest {
 		URL appiumServer = new URI("http://127.0.0.1:4723/").toURL();
 
 		UiAutomator2Options options = new UiAutomator2Options();
-		options.setDeviceName("GagansEmulator");
+//		options.setDeviceName("GagansEmulator");
+		options.setDeviceName("Android Device"); // To run tests on the real device
 		options.setApp("F:\\appium-workspace\\AppiumLearning\\src\\test\\java\\resources\\ApiDemos-debug.apk");
 		
 		driver = new AndroidDriver(appiumServer, options);
@@ -72,7 +73,7 @@ public class BaseTest {
 
 	public void gestureSwipeOnAnElement(WebElement element, String direction) {
 		((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of("elementId",
-				((RemoteWebElement) element).getId(), "direction", direction, "percent", 0.25));
+				((RemoteWebElement) element).getId(), "direction", direction, "percent", 0.15));
 	}
 	
 	public void gestureDragDrop(WebElement element, int dropCordX, int dropCordY) {
